@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>GitHub Score</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+   body{
+     text-align: center
+   }
+
+  </style>
+</head>
+
+<body>
+  <div>
+    <div>
+      <h2>Github Score</h2>
+    </div>
+    <div>
+      <form (submit)="getUser()">
+        <div>
+          <label>Github Username</label>
+          <input type="text" name="username" [(ngModel)]="username.user">
+        </div>
+        <div>
+          <input type="submit" value="Calculate my Github Score">
+        </div>
+      </form>
+      <h3 *ngIf="list.id">This Github User's Score is: {{list.public_repos + list.followers}}</h3>
+      <h4 *ngIf=" list.public_repos + list.followers < 20">Needs work!</h4>
+      <h4 *ngIf=" list.public_repos + list.followers > 20 && list.public_repos + list.followers < 50">A Decent Start!</h4>
+      <h4 *ngIf=" list.public_repos + list.followers > 50 && list.public_repos + list.followers < 100">Doing Good!</h4>
+      <h4 *ngIf=" list.public_repos + list.followers > 100 && list.public_repos + list.followers < 200">Great Job!</h4>
+      <h4 *ngIf=" list.public_repos + list.followers > 200 && list.public_repos + list.followers >=200">Github Elite!!!</h4>
+    </div>
+  </div>
+</body>
+
+</html>
